@@ -1,0 +1,104 @@
+import { create } from 'zustand';
+
+// 建立 store hook
+const usePsyStore = create((set) => ({
+  state: 0, // 0:start, 1:question, 2:displayResult, 3: result
+  questionState: 0,
+  totalQuestions: 7,
+  score: 0,
+  updateState: (newState) => set((state) => ({ state: newState })),
+  updateQuestionState: (newState) => set((state) => ({ questionState: newState })),
+  updateTotalQuestions: (newState) => set((state) => ({ totalQuestions: newState })),
+  updateScore: (newState) => set((state) => ({ score: newState }))
+}));
+
+const useQuestionStore = create((set) => ({
+  questions: {
+    "1": {
+      title: "你下班/下課後最常做的第一件事是？",
+      options: [
+        { title: "打開 Netflix 發呆一集", value: 1 },
+        { title: "到河邊或陽台放空一下", value: 2 },
+        { title: "順路去一間漂亮的店拍照", value: 3 },
+        { title: "跟朋友約宵夜或聊天", value: 4 },
+        { title: "衝回家把今天的行程打在手帳裡", value: 5 },
+        { title: "買個甜甜的東西犒賞自己", value: 6 },
+        { title: "去便利商店亂晃、想喝點冰的", value: 7 }
+      ]
+    },
+    "2": {
+      title: "以下哪句話最能形容你？",
+      options: [
+        { title: "喜歡不動聲色地被記得。", value: 1 },
+        { title: "果斷理性，不耽溺。", value: 2 },
+        { title: "特立獨行，甜但不膩。", value: 3 },
+        { title: "隨和、溫柔、安撫型人格。", value: 4 },
+        { title: "不被看懂，也無所謂。", value: 5 },
+        { title: "討喜、好相處、但有想法。", value: 6 },
+        { title: "有點冷，有點酷，有點中毒性。", value: 7 }
+      ]
+    },
+    "3": {
+      title: "假日最想怎麼過？",
+      options: [
+        { title: "在家窩一整天當薯條", value: 1 },
+        { title: "騎車去沒人知道的小景點", value: 2 },
+        { title: "手作體驗＋喝杯花香茶", value: 3 },
+        { title: "跟固定班底聚會", value: 4 },
+        { title: "拍 Vlog、修照片、寫點日記", value: 5 },
+        { title: "去夜市吃遍地瓜球跟烤玉米", value: 6 },
+        { title: "隨機約一杯咖啡店再說", value: 7 }
+      ]
+    },
+    "4": {
+      title: "當你陷入情緒低谷時，會怎麼處理？",
+      options: [
+        { title: "自己消化就好", value: 1 },
+        { title: "讓自己流汗：運動 or 流汗排毒", value: 2 },
+        { title: "找一個安靜又漂亮的地方整理情緒", value: 3 },
+        { title: "去找朋友撒嬌", value: 4 },
+        { title: "開一堆 app 狂滑切換注意力", value: 5 },
+        { title: "吃飯、吃飯、吃飯", value: 6 },
+        { title: "寫歌或畫畫，自娛式輸出", value: 7 }
+      ]
+    },
+    "5": {
+      title: "你心中理想的飲料店是？",
+      options: [
+        { title: "陰影下的老宅，茶香氤氳", value: 1 },
+        { title: "現打水果，冰涼天然又清爽", value: 2 },
+        { title: "玻璃屋＋乾燥花＋漂亮粉色飲料", value: 3 },
+        { title: "有點浮誇但誠意滿滿", value: 4 },
+        { title: "店員帥，菜單特別，甜度剛剛好", value: 5 },
+        { title: "芋頭爆料＋奶香撲鼻", value: 6 },
+        { title: "全黑裝潢，神秘、沉穩、有態度", value: 7 }
+      ]
+    },
+    "6": {
+      title: "朋友找你討拍，你會怎麼做？",
+      options: [
+        { title: "傾聽、抱抱、陪對方躺著", value: 1 },
+        { title: "把他拉出去大喊大叫、流汗", value: 2 },
+        { title: "買漂亮的甜點給對方拍照療癒", value: 3 },
+        { title: "一邊罵對方，一邊安慰", value: 4 },
+        { title: "幫對方寫一篇限動、做投影片分析", value: 5 },
+        { title: "直接買宵夜送上門", value: 6 },
+        { title: "把話聽完之後冷冷說：「你值得更好的」", value: 7 }
+      ]
+    },
+    "7": {
+      title: "你喝手搖的習慣是？",
+      options: [
+        { title: "微糖去冰、照慣例點", value: 1 },
+        { title: "看當季水果有什麼就選什麼", value: 2 },
+        { title: "喜歡選有果凍或粉粿那種漂亮料", value: 3 },
+        { title: "爆料加爆奶、不甜不喝", value: 4 },
+        { title: "不同品牌點不同組合，探索控", value: 5 },
+        { title: "永遠芋頭 or 奶茶，絕對忠誠", value: 6 },
+        { title: "純茶＋奶蓋，只有我懂它的好", value: 7 }
+      ]
+    }
+  }
+}));
+
+export { usePsyStore, useQuestionStore };
